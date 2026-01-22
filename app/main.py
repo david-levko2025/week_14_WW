@@ -14,7 +14,7 @@ def create_file(file: UploadFile = File(...)):
     if not file:
         raise HTTPException(detail="The file not provided",status_code=400)
     df = DataProcessing.main_function(file)
-    insert_message = DBConnection.insert_data()
+    # insert_message = DBConnection.insert_data()
     return {"status": 'insert_message',
             "inserted records": len(df)}
 
