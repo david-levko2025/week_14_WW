@@ -21,13 +21,11 @@ spec:
           name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: 
+          value: "password"
         - name: MYSQL_DATABASE
-          value: 
-        - name: MYSQL_USER
-          value: 
-        - name: MYSQL_PASSWORD
-          value: 
+          value: "weapon_warehouse"
+        - name: MYSQL_ROOT_USER
+          value: "root"
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql

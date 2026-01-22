@@ -7,5 +7,7 @@ oc apply -f mysql-service.yaml
 oc apply -f api-deployment.yaml
 oc apply -f api-service.yaml 
 oc get pods
+oc get svc
+oc get deployment
 oc expose svc/api-service-svc
-oc get rout api-service-svc
+oc get route api-service-svc
