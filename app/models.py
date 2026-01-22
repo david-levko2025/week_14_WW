@@ -10,5 +10,6 @@ class DataProcessing():
         return df
 
     @staticmethod
-    def handling_missing_values():
-        pass
+    def handling_missing_values(df):
+        df['manufacturer'] = df['manufacturer'].replace("","Unknown")
+        return df

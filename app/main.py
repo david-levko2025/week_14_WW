@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 import uvicorn
-
+import pandas as pd
 
 
 
@@ -10,7 +10,11 @@ app = FastAPI()
 def create_file(file: UploadFile = File(...)):
     if not file:
         raise HTTPException(detail="The file not provided",status_code=400)
-    return {"The weapon list": file.file}
+    df = pd.read_csv(file.file)
+    
+    return {"status": "success",
+            "inserted_records":len(df)
+            }
 
 
 if __name__ == "__main__":
