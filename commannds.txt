@@ -1,0 +1,11 @@
+docker build . -t davidlevko2025/api-service:1.1
+docker push davidlevko2025/api-service:1.1
+
+
+oc apply -f mysql-statefulset.yaml
+oc apply -f mysql-service.yaml
+oc apply -f api-deployment.yaml
+oc apply -f api-service.yaml 
+oc get pods
+oc expose svc/api-service-svc
+oc get rout api-service-svc
