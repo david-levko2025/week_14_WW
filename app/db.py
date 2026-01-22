@@ -1,5 +1,13 @@
 import mysql.connector 
 from mysql.connector.connection import MySQLConnectionAbstract 
+import os
+
+
+MYSQL_ROOT_USER = os.getenv("MYSQL_ROOT_USER")
+MYSQL_ROOT_PASSWORD = os.getenv("MYSQL_ROOT_PASSWORD")
+MYSQL_ROOT_HOST = os.getenv("MYSQL_ROOT_HOST")
+MYSQL_ROOT_DB = os.getenv("MYSQL_ROOT_DB")
+
 
 
 def get_connection():
