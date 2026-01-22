@@ -1,10 +1,17 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 import uvicorn
 import pandas as pd
+from contextlib import asynccontextmanager
+from db import creat_table
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    creat_table()
+    yield
+    
 
+app = FastAPI(lifespan=lifespan)
 
-app = FastAPI()
 
 @app.post("/upload")
 def create_file(file: UploadFile = File(...)):
