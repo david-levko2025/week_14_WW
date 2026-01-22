@@ -12,7 +12,7 @@ class DataProcessing():
 
     @staticmethod
     def add_columns_risk_level_by_range_km(df: DataFrame):
-        df["risk_level"] = pd.cut(df["range_km"],bins=[0,20,100,300,float("inf")],labels=["low", "medium", "high","extreme"],lowest=True)
+        df["risk_level"] = pd.cut(df["range_km"],bins=[0,20,100,300,float("inf")],labels=["low", "medium", "high","extreme"],include_lowest= True)
         df["risk_level"] =  df["risk_level"].astype(str)
         return df
 
